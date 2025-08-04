@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keep Awake - Screen Wake Lock App</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body class="bg-gray-900 text-white min-h-screen">
+    <div id="app" class="container mx-auto px-4 py-8">
+      <div class="max-w-md mx-auto">
+        <h1 class="text-3xl font-bold text-center mb-8 text-blue-400">
+          Keep Awake
+        </h1>
+
+        <!-- Main Controls Container (this will go into PIP) -->
+        <div
+          id="controls-container"
+          class="bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-700"
+        >
+          <!-- Wake Lock Status -->
+          <div class="mb-6">
+            <div class="flex items-center justify-between mb-2 gap-2 flex-wrap">
+              <span class="text-lg font-semibold text-white"
+                >Wake Lock Status</span
+              >
+              <div id="status-indicator" class="flex items-center">
+                <div
+                  id="status-dot"
+                  class="w-3 h-3 rounded-full bg-red-500 mr-2"
+                ></div>
+                <span id="status-text" class="text-sm text-gray-300"
+                  >Inactive</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Wake Lock Toggle Switch -->
+          <div class="mb-6">
+            <div class="flex items-center justify-between gap-2 flex-wrap">
+              <label
+                for="wakelock-toggle"
+                class="text-lg font-medium text-white"
+                >Keep Screen Awake</label
+              >
+              <div class="relative">
+                <input type="checkbox" id="wakelock-toggle" class="sr-only" />
+                <div
+                  id="toggle-bg"
+                  class="block bg-gray-600 w-14 h-8 rounded-full cursor-pointer"
+                ></div>
+                <div
+                  id="toggle-dot"
+                  class="absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition-transform duration-200 ease-in-out"
+                ></div>
+              </div>
+            </div>
+            <p class="text-sm text-gray-400 mt-2">
+              Prevents your screen from turning off
+            </p>
+          </div>
+
+          <!-- PIP Toggle Button -->
+          <div class="mb-4">
+            <button
+              id="pip-toggle"
+              class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200"
+            >
+              Toggle Picture-in-Picture
+            </button>
+            <p class="text-sm text-gray-400 mt-2 text-center">
+              Opens controls in a floating window
+            </p>
+          </div>
+
+          <!-- PIP Status -->
+          <div
+            id="pip-status"
+            class="text-center text-sm text-gray-700 bg-gray-300 border-gray-200 px-3 py-1 rounded-full"
+          >
+            <span id="pip-status-text">PIP: Inactive</span>
+          </div>
+        </div>
+
+        <!-- Information Section (only visible in main window) -->
+        <div
+          id="info-section"
+          class="mt-8 bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-700"
+        >
+          <h2 class="text-xl font-semibold mb-4 text-blue-400">About</h2>
+          <div class="space-y-3 text-sm text-gray-300">
+            <p>
+              🔒 <strong>Wake Lock:</strong> Keeps your screen active and
+              prevents it from dimming or turning off.
+            </p>
+            <p>
+              🖼️ <strong>Picture-in-Picture:</strong> Controls stay visible in a
+              floating window when you switch tabs.
+            </p>
+            <p>
+              🔄 <strong>Auto PIP:</strong> Automatically activates when you
+              switch to another tab.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
